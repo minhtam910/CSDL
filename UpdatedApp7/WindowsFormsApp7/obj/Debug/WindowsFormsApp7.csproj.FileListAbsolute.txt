@@ -1,0 +1,55 @@
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.exe.config
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.exe
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.pdb
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.LoginForm.resources
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.Properties.Resources.resources
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.exe
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.pdb
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.ReviewForm.resources
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.PreexamForm.resources
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.ExamScreen.resources
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.Khoa.resources
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.MenuAdmin.resources
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.AddQuestion.resources
+C:\Users\Admin\source\repos\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.Subject.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.exe.config
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.exe
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.pdb
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.exe
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.pdb
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.csprojResolveAssemblyReference.cache
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.AddQuestion.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.CheckResult.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.ExamScreen.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.Khoa.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.LoginForm.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.MenuAdmin.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.ReviewForm.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.PreExamForm.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.Properties.Resources.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.Subject.resources
+C:\Users\MR Nam\Desktop\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.csproj.GenerateResource.Cache
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.exe.config
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.exe
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.pdb
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.AddQuestion.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.CheckResult.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.ExamScreen.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.Khoa.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.LoginForm.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.MenuAdmin.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.ReviewForm.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.PreExamForm.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.Properties.Resources.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.Subject.resources
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.exe
+C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.pdb
+C:\Users\MR Nam\Desktop\UpdatedApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.exe.config
+C:\Users\MR Nam\Desktop\UpdatedApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.exe
+C:\Users\MR Nam\Desktop\UpdatedApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.pdb
