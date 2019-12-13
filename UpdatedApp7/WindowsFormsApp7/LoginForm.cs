@@ -16,12 +16,15 @@ namespace WindowsFormsApp7
         string maCoSo;
         private string username;
         private string password;
+        int tag = -1;
         string connMain = "Data Source=.\\SERVER_TTN_MAIN;Initial Catalog=QL_TTN;Integrated Security=True";
         string conn1 = "Data Source=.\\SERVER1_TTN;Initial Catalog=QL_TTN;Integrated Security=True";
         string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;Integrated Security=True";
-        string selectedConn = "";
+        string selectedConn = "Data Source=.\\;Initial Catalog=QLTTN;Integrated Security=True";
         private SqlConnection conn;
         private SqlCommand cmd;
+
+        //Fill comboBox Cơ sở
         public void connectDatabase() {
             conn = new SqlConnection(conn1);
             DataSet ds = new DataSet();
@@ -66,6 +69,18 @@ namespace WindowsFormsApp7
             return hasAccount;
         }
 
+        public void getTag()
+        {
+            conn = new SqlConnection(connMain);
+            conn.Open();
+            SqlParameter p1 = new SqlParameter("@id", username);
+            string select = "select tag from Account where  ID = @id";
+            cmd = new SqlCommand(select, conn);
+            cmd.Parameters.Add(p1);
+            string result = Convert.ToString(cmd.ExecuteScalar());
+            MessageBox.Show(" " + result);
+        }
+
         public void getMaCoSo()
         {
             conn = new SqlConnection(connMain);
@@ -95,7 +110,7 @@ namespace WindowsFormsApp7
             
             if(checkAccountExist())
             {
-                getMaCoSo();
+                getTag();
             }
             else
             {

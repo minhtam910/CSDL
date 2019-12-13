@@ -53,3 +53,6 @@ C:\Users\Admin\Desktop\appcsdlpt\WindowsFormsApp7\WindowsFormsApp7\obj\Debug\Win
 C:\Users\MR Nam\Desktop\UpdatedApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.exe.config
 C:\Users\MR Nam\Desktop\UpdatedApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.exe
 C:\Users\MR Nam\Desktop\UpdatedApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.pdb
+G:\Github\CSDL\CSDL\UpdatedApp7\WindowsFormsApp7\bin\Debug\WindowsFormsApp7.exe.config
+G:\Github\CSDL\CSDL\UpdatedApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.exe
+G:\Github\CSDL\CSDL\UpdatedApp7\WindowsFormsApp7\obj\Debug\WindowsFormsApp7.pdb
