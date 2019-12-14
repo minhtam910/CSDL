@@ -14,6 +14,7 @@ namespace WindowsFormsApp7
 {
     public partial class Khoa : Form
     {
+        string selectedConn;
         string connMain = "Data Source=.\\SERVER_TTN_MAIN;Initial Catalog=QL_TTN;Integrated Security=True";
         string conn1 = "Data Source=.\\SERVER1_TTN;Initial Catalog=QL_TTN;Integrated Security=True";
         string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;Integrated Security=True";
@@ -28,14 +29,14 @@ namespace WindowsFormsApp7
 
         private void FillDataKhoa()
         {
-            conn = new SqlConnection("Data Source = .\\; Initial Catalog = QLTTN; Integrated Security = True");
+            conn = new SqlConnection(selectedConn);
             DataSet ds = new DataSet();
             try
             {
                 conn.Open();
-                SqlParameter p = new SqlParameter("@MaCS", maCS);
-                cmd = new SqlCommand("select TenKH,MaKH from Khoa where MaCS = @MaCS", conn);
-                cmd.Parameters.Add(p);
+                //SqlParameter p = new SqlParameter("@MaCS", maCS);
+                cmd = new SqlCommand("select TenKH,MaKH from Khoa", conn);
+                //cmd.Parameters.Add(p);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
                 cbKhoa.DisplayMember = "TenKH";
@@ -57,7 +58,7 @@ namespace WindowsFormsApp7
 
         private void FillDataLop(string tenKH)
         {
-            conn = new SqlConnection("Data Source = .\\; Initial Catalog = QLTTN; Integrated Security = True");
+            conn = new SqlConnection(selectedConn);
             DataSet ds = new DataSet();
             try
             {
@@ -96,9 +97,10 @@ namespace WindowsFormsApp7
             tenLop = this.cbLop.GetItemText(this.cbLop.SelectedItem);
             maLop = cbLop.SelectedValue.ToString();
         }
-        public Khoa(String s)
+        public Khoa(String connection, string maCS)
         {
-            this.maCS = s;
+            this.selectedConn = connection;
+            this.maCS = maCS;
             InitializeComponent();
             FillDataKhoa();
         }
@@ -377,13 +379,13 @@ namespace WindowsFormsApp7
 
         private void btnAddKhoa_Click(object sender, EventArgs e)
         {
-            conn = new SqlConnection("Data Source = .\\; Initial Catalog = QLTTN; Integrated Security = True");
+            conn = new SqlConnection(selectedConn);
             conn.Open();
             SqlParameter p1 = new SqlParameter("@MaKH", newMaKhoa);
             SqlParameter p2 = new SqlParameter("@TenKH", newKhoa);
             SqlParameter p3 = new SqlParameter("@MaCS", maCS);
             SqlParameter[] p = { p1, p2, p3 };
-            string insert = "insert into Khoa values (@MaKH,@TenKH,@MaCS)";
+            string insert = "insert into Khoa(MaKH,TenKH,MaCS) values (@MaKH,@TenKH,@MaCS)";
             cmd = new SqlCommand(insert, conn);
             cmd.Parameters.AddRange(p);
             SqlDataAdapter da = new SqlDataAdapter();
@@ -398,7 +400,7 @@ namespace WindowsFormsApp7
 
         private void btnAddLop_Click(object sender, EventArgs e)
         {
-            conn = new SqlConnection("Data Source = .\\; Initial Catalog = QLTTN; Integrated Security = True");
+            conn = new SqlConnection(selectedConn);
             conn.Open();
             SqlParameter p1 = new SqlParameter("@MaLop", newMaLop);
             SqlParameter p2 = new SqlParameter("@TenLop", newLop);
