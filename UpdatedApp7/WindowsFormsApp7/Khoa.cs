@@ -14,10 +14,10 @@ namespace WindowsFormsApp7
 {
     public partial class Khoa : Form
     {
-        string selectedConn;
+        string selectedConn;/*
         string connMain = "Data Source=.\\SERVER_TTN_MAIN;Initial Catalog=QL_TTN;Integrated Security=True";
         string conn1 = "Data Source=.\\SERVER1_TTN;Initial Catalog=QL_TTN;Integrated Security=True";
-        string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;Integrated Security=True";
+        string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;Integrated Security=True";*/
         private SqlConnection conn;
         private SqlCommand cmd;
         string tenKhoa, maKhoa, newKhoa, newMaKhoa;
@@ -34,16 +34,12 @@ namespace WindowsFormsApp7
             try
             {
                 conn.Open();
-                //SqlParameter p = new SqlParameter("@MaCS", maCS);
                 cmd = new SqlCommand("select TenKH,MaKH from Khoa", conn);
-                //cmd.Parameters.Add(p);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
                 cbKhoa.DisplayMember = "TenKH";
                 cbKhoa.ValueMember = "MaKH";
                 cbKhoa.DataSource = ds.Tables[0];
-                //MessageBox.Show("Két nối thành công!");
-
             }
             catch (Exception ex)
             {
@@ -72,7 +68,6 @@ namespace WindowsFormsApp7
                 cbLop.DisplayMember = "TenLop";
                 cbLop.ValueMember = "MaLop";
                 cbLop.DataSource = ds.Tables[0];
-                //MessageBox.Show("Két nối thành công!");
 
             }
             catch (Exception ex)
@@ -177,7 +172,7 @@ namespace WindowsFormsApp7
         private void btnAdd_Click(object sender, EventArgs e)
         {
             NgaySinh = Convert.ToDateTime(txtBirthDay.Text);
-            conn = new SqlConnection("Data Source = .\\; Initial Catalog = QLTTN; Integrated Security = True");
+            conn = new SqlConnection(selectedConn);
             conn.Open();
             SqlParameter p1 = new SqlParameter("@maso", MaSo);
             SqlParameter p2 = new SqlParameter("@Ho", Ho);
@@ -385,7 +380,7 @@ namespace WindowsFormsApp7
             SqlParameter p2 = new SqlParameter("@TenKH", newKhoa);
             SqlParameter p3 = new SqlParameter("@MaCS", maCS);
             SqlParameter[] p = { p1, p2, p3 };
-            string insert = "insert into Khoa(MaKH,TenKH,MaCS) values (@MaKH,@TenKH,@MaCS)";
+            string insert = "EXEC sp_CHECKTHENINSERTKHOA @MaKH, @TenKH, @MaCS";
             cmd = new SqlCommand(insert, conn);
             cmd.Parameters.AddRange(p);
             SqlDataAdapter da = new SqlDataAdapter();

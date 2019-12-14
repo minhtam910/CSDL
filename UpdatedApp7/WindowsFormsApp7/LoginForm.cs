@@ -19,7 +19,8 @@ namespace WindowsFormsApp7
         int tag = -1;
         string connMain = "Data Source=.\\SERVER_TTN_MAIN;Initial Catalog=QL_TTN;Integrated Security=True";
         string conn1 = "Data Source=.\\SERVER1_TTN;Initial Catalog=QL_TTN;Integrated Security=True";
-        string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;Integrated Security=True";
+        //string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;Integrated Security=True";
+        string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;User ID=sa;Password=***********";
         string selectedConn = "Data Source=.\\;Initial Catalog=QLTTN;Integrated Security=True";
         private SqlConnection conn;
         private SqlCommand cmd;
@@ -77,8 +78,7 @@ namespace WindowsFormsApp7
             cmd = new SqlCommand(select, conn);
             cmd.Parameters.Add(p1);
             string result = Convert.ToString(cmd.ExecuteScalar());
-            tag = Int32.Parse(result);
-            MessageBox.Show(" " + result);
+            tag = Int32.Parse(result);          
         }
 
         public void getMaCoSo()
