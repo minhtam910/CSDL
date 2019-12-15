@@ -58,10 +58,10 @@ namespace WindowsFormsApp7
 
         private void txtMaMon_TextChanged(object sender, EventArgs e)
         {
-            if (txtMaMon.Text.Equals("") || txtTenMon.Text.Equals(""))
+            /*if (txtMaMon.Text.Equals("") || txtTenMon.Text.Equals(""))
                 btnAdd.Enabled = false;
             else
-                btnAdd.Enabled = true;
+                btnAdd.Enabled = true;*/
             maMH = txtMaMon.Text;
         }
 
@@ -85,6 +85,7 @@ namespace WindowsFormsApp7
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show(maMH + " " + tenMH);
             conn = new SqlConnection(selectedConn);
             conn.Open();
             SqlParameter p1 = new SqlParameter("@MaMH", maMH);
@@ -92,14 +93,16 @@ namespace WindowsFormsApp7
             SqlParameter[] p = { p1, p2 };
             string insert = "EXEC sp_CHECKTHENINSERTMONHOC @MaMH,@TenMH";
             cmd = new SqlCommand(insert, conn);
+            cmd.Parameters.AddRange(p);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.InsertCommand = cmd;
+            da.InsertCommand.ExecuteNonQuery();
+            MessageBox.Show("Thêm thành công");
+            resetForm();
+            FillData();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.InsertCommand = cmd;
-                da.InsertCommand.ExecuteNonQuery();
-                MessageBox.Show("Thêm thành công");
-                cmd.Parameters.AddRange(p);
-                resetForm();
+                
             }
             catch
             {
@@ -118,8 +121,8 @@ namespace WindowsFormsApp7
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter();
-                da.InsertCommand = cmd;
-                da.InsertCommand.ExecuteNonQuery();
+                da.DeleteCommand = cmd;
+                da.DeleteCommand.ExecuteNonQuery();
                 MessageBox.Show("Xóa thành công");
                 resetForm();
 
@@ -128,6 +131,11 @@ namespace WindowsFormsApp7
             {
                 MessageBox.Show("Lỗi khi xóa thông tin");
             }
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace WindowsFormsApp7
         private SqlCommand cmd;
         string tenKhoa, maKhoa, newKhoa, newMaKhoa;
         string tenLop, maLop, newLop, newMaLop;
-        string MaSo, Ho, Ten, DiaChi, HocVi;
+        string MaSo, Ho, Ten, DiaChi, HocVi = "";
         private string maCS;
         int type = 1, haveInDb;
         DateTime NgaySinh;
@@ -217,18 +217,16 @@ namespace WindowsFormsApp7
             string select = "";
             SqlParameter p1 = new SqlParameter("@ms", MaSo);
             if (type == 0)
-                select = "EXEC sp_CHECKIFSINHVIENEXIST @ms";
+                select = "select * from SinhVien where MaSV = @ms";
             if (type == 1)
-                select = "EXEC sp_CHECKIFGIAOVIENEXIST @ms";
+                select = "select * from Giaovien where MaGV = @ms";
             cmd = new SqlCommand(select, conn);
             cmd.Parameters.Add(p1);
-            /*
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            string str = dt.Rows[0][0].ToString();*/
             string result = Convert.ToString(cmd.ExecuteScalar());
-            haveInDb = Int32.Parse(result);
+            if (result.Equals(""))
+                haveInDb = 0;
+            if (!result.Equals(""))
+                haveInDb = 1;
             if (haveInDb == 0)
             {
                 MessageBox.Show("Chưa có thông tin trong database, điền đầy đủ thông tin để thêm mới");
@@ -315,7 +313,6 @@ namespace WindowsFormsApp7
                     }
                 }
             }
-            
             conn.Close();
         }
 
@@ -334,8 +331,8 @@ namespace WindowsFormsApp7
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter();
-                da.InsertCommand = cmd;
-                da.InsertCommand.ExecuteNonQuery();
+                da.DeleteCommand = cmd;
+                da.DeleteCommand.ExecuteNonQuery();
                 MessageBox.Show("Xóa thành công");
                 resetForm();
             }
@@ -343,6 +340,27 @@ namespace WindowsFormsApp7
             {
                 MessageBox.Show("Lỗi trong quá trình xóa");
             }
+        }
+
+        private void btnAddKhoa_Click(object sender, EventArgs e)
+        {
+            conn = new SqlConnection(selectedConn);
+            conn.Open();
+            SqlParameter p1 = new SqlParameter("@MaKH", newMaKhoa);
+            SqlParameter p2 = new SqlParameter("@TenKH", newKhoa);
+            SqlParameter p3 = new SqlParameter("@MaCS", maCS);
+            SqlParameter[] p = { p1, p2, p3 };
+            string insert = "EXEC sp_CHECKTHENINSERTKHOA @MaKH, @TenKH, @MaCS";
+            cmd = new SqlCommand(insert, conn);
+            cmd.Parameters.AddRange(p);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.InsertCommand = cmd;
+            da.InsertCommand.ExecuteNonQuery();
+            MessageBox.Show("Thêm thành công");
+            FillDataKhoa();
+            txtMaKhoa.Text = "";
+            txtNewKhoa.Text = "";
+            CheckNewKhoa.Checked = false;
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -370,13 +388,14 @@ namespace WindowsFormsApp7
             }
             cmd = new SqlCommand(update, conn);
             cmd.Parameters.AddRange(p);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.UpdateCommand = cmd;
+            da.UpdateCommand.ExecuteNonQuery();
+            MessageBox.Show("Chỉnh sửa thành công");
+            resetForm();
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.InsertCommand = cmd;
-                da.InsertCommand.ExecuteNonQuery();
-                MessageBox.Show("Chỉnh sửa thành công");
-                resetForm();
+                
 
             }
             catch
@@ -386,26 +405,7 @@ namespace WindowsFormsApp7
 
         }
 
-        private void btnAddKhoa_Click(object sender, EventArgs e)
-        {
-            conn = new SqlConnection(selectedConn);
-            conn.Open();
-            SqlParameter p1 = new SqlParameter("@MaKH", newMaKhoa);
-            SqlParameter p2 = new SqlParameter("@TenKH", newKhoa);
-            SqlParameter p3 = new SqlParameter("@MaCS", maCS);
-            SqlParameter[] p = { p1, p2, p3 };
-            string insert = "EXEC sp_CHECKTHENINSERTKHOA @MaKH, @TenKH, @MaCS";
-            cmd = new SqlCommand(insert, conn);
-            cmd.Parameters.AddRange(p);
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.InsertCommand = cmd;
-            da.InsertCommand.ExecuteNonQuery();
-            MessageBox.Show("Thêm thành công");
-            FillDataKhoa();
-            txtMaKhoa.Text = "";
-            txtNewKhoa.Text = "";
-            CheckNewKhoa.Checked = false;
-        }
+        
 
         private void btnAddLop_Click(object sender, EventArgs e)
         {

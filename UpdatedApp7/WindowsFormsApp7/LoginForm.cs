@@ -20,15 +20,14 @@ namespace WindowsFormsApp7
         string connMain = "Data Source=.\\SERVER_TTN_MAIN;Initial Catalog=QL_TTN;Integrated Security=True";
         string conn1 = "Data Source=.\\SERVER1_TTN;Initial Catalog=QL_TTN;Integrated Security=True";
         //string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;Integrated Security=True";
-        string conn2 = "Data Source=DESKTOP-05IJJ0L\\SERVER_TTN2;Initial Catalog=QL_TTN;User ID=sa";
-        //string conn2 = "Data Source=DESKTOP-05IJJ0L;UID=sa;PWD=123456789;Initial Catalog=QL_TTN";
-        string selectedConn = "Data Source=.\\;Initial Catalog=QL_TTN;Integrated Security=True";
+        string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;User ID=sa;Password=***********";
+        string selectedConn = "Data Source=.\\;Initial Catalog=QLTTN;Integrated Security=True";
         private SqlConnection conn;
         private SqlCommand cmd;
 
         //Fill comboBox Cơ sở
         public void connectDatabase() {
-            conn = new SqlConnection(conn1);
+            conn = new SqlConnection(connMain);
             DataSet ds = new DataSet();
             try
             {
@@ -118,7 +117,23 @@ namespace WindowsFormsApp7
                 getTag();
                 if (tag == 0) //role TRUONG, thì set conntion tùy thuộc cái comboBox người ta chọn
                 {
-
+                    if (check.Checked == true)
+                    {
+                        if (selectedConn == conn1)
+                        {
+                            AddAccount adc = new AddAccount();
+                            this.Hide();
+                            adc.ShowDialog();
+                        }
+                        if (selectedConn == conn2)
+                        {
+                            Info adc = new Info();
+                            this.Hide();
+                            adc.ShowDialog();
+                        }
+                    }
+                    else
+                        MessageBox.Show("Chọn cơ sở để đăng nhập.");     
                 }
                 if (tag == 1) //role CS1, set conn = conn1
                 {
