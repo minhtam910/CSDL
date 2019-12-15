@@ -217,16 +217,18 @@ namespace WindowsFormsApp7
             string select = "";
             SqlParameter p1 = new SqlParameter("@ms", MaSo);
             if (type == 0)
-                select = "select dbo.checkIfHas(@ms,0)";
+                select = "EXEC sp_CHECKIFSINHVIENEXIST @ms";
             if (type == 1)
-                select = "select dbo.checkIfHas(@ms,1)";
+                select = "EXEC sp_CHECKIFGIAOVIENEXIST @ms";
             cmd = new SqlCommand(select, conn);
             cmd.Parameters.Add(p1);
+            /*
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            string str = dt.Rows[0][0].ToString();
-            haveInDb = Int32.Parse(str);
+            string str = dt.Rows[0][0].ToString();*/
+            string result = Convert.ToString(cmd.ExecuteScalar());
+            haveInDb = Int32.Parse(result);
             if (haveInDb == 0)
             {
                 MessageBox.Show("Chưa có thông tin trong database, điền đầy đủ thông tin để thêm mới");
