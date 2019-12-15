@@ -123,16 +123,16 @@ namespace WindowsFormsApp7
                 if (tag == 1) //role CS1, set conn = conn1
                 {
                     selectedConn = conn1;
-                    Khoa khoa = new Khoa(selectedConn,maCoSo);
+                    MenuAdmin ma = new MenuAdmin(selectedConn,maCoSo);
                     this.Hide();
-                    khoa.ShowDialog();
+                    ma.ShowDialog();
                 }
                 if (tag == 2) //role CS2, set conn = conn2
                 {
                     selectedConn = conn2;
-                    Khoa khoa = new Khoa(selectedConn,maCoSo);
+                    MenuAdmin ma = new MenuAdmin(selectedConn, maCoSo);
                     this.Hide();
-                    khoa.ShowDialog();
+                    ma.ShowDialog();
                 }
                 if (tag == 3 || tag == 4)
                 {

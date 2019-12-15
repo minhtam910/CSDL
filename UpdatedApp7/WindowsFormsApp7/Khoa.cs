@@ -180,10 +180,14 @@ namespace WindowsFormsApp7
             SqlParameter p4 = new SqlParameter("@NgaySinh", NgaySinh);
             SqlParameter p5 = new SqlParameter("@DiaChi", DiaChi);
             SqlParameter p6 = new SqlParameter("@MaLop", maLop);
-            SqlParameter[] p = { p1, p2, p3, p4, p5, p6 };
+            SqlParameter p7 = new SqlParameter("@MaKhoa", maKhoa);
+            SqlParameter p8 = new SqlParameter("@HocVi", HocVi);
+            SqlParameter[] p = { p1, p2, p3, p4, p5, p6, p7, p8 };
             string insert = "";
-            if (type ==0)
-                 insert = "insert into SinhVien values (@maso,@Ho,@Ten,@NgaySinh,@DiaChi,@MaLop)";
+            if (type == 0)
+                 insert = "EXEC sp_CHECKTHENINSERTSINHVIEN @maso,@Ho,@Ten,@NgaySinh,@DiaChi,@MaLop";
+            if (type == 1)
+                insert = "EXEC sp_CHECKTHENINSERTGIAOVIEN @maso,@Ho,@Ten,@HocVi,@MaKhoa";
             cmd = new SqlCommand(insert, conn);
             cmd.Parameters.AddRange(p);
             try
@@ -208,21 +212,23 @@ namespace WindowsFormsApp7
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            conn = new SqlConnection("Data Source = .\\; Initial Catalog = QLTTN; Integrated Security = True");
+            conn = new SqlConnection(selectedConn);
             conn.Open();
             string select = "";
             SqlParameter p1 = new SqlParameter("@ms", MaSo);
             if (type == 0)
-                select = "select dbo.checkIfHas(@ms,0)";
+                select = "EXEC sp_CHECKIFSINHVIENEXIST @ms";
             if (type == 1)
-                select = "select dbo.checkIfHas(@ms,1)";
+                select = "EXEC sp_CHECKIFGIAOVIENEXIST @ms";
             cmd = new SqlCommand(select, conn);
             cmd.Parameters.Add(p1);
+            /*
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            string str = dt.Rows[0][0].ToString();
-            haveInDb = Int32.Parse(str);
+            string str = dt.Rows[0][0].ToString();*/
+            string result = Convert.ToString(cmd.ExecuteScalar());
+            haveInDb = Int32.Parse(result);
             if (haveInDb == 0)
             {
                 MessageBox.Show("Chưa có thông tin trong database, điền đầy đủ thông tin để thêm mới");
@@ -315,12 +321,14 @@ namespace WindowsFormsApp7
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            conn = new SqlConnection("Data Source = .\\; Initial Catalog = QLTTN; Integrated Security = True");
+            conn = new SqlConnection(selectedConn);
             conn.Open();
             SqlParameter p1 = new SqlParameter("@maso", MaSo);
             string delete = "";
             if (type == 0)
-                delete = "delete from SinhVien where MaSV like @maso";
+                delete = "EXEC sp_DELSINHVIEN @maso";
+            if (type == 1)
+                delete = "EXEC sp_DELGIAOVIEN @maso";
             cmd = new SqlCommand(delete, conn);
             cmd.Parameters.Add(p1);
             try
@@ -340,19 +348,25 @@ namespace WindowsFormsApp7
         private void btnChange_Click(object sender, EventArgs e)
         {
             NgaySinh = Convert.ToDateTime(txtBirthDay.Text);
-            conn = new SqlConnection("Data Source = .\\; Initial Catalog = QLTTN; Integrated Security = True");
+            conn = new SqlConnection(selectedConn);
             conn.Open();
             string update = "";
             SqlParameter p1 = new SqlParameter("@maso", MaSo);
             SqlParameter p2 = new SqlParameter("@Ho", Ho);
             SqlParameter p3 = new SqlParameter("@Ten", Ten);
-            SqlParameter p4 = new SqlParameter("@NgaySinh", NgaySinh);
-            SqlParameter p5 = new SqlParameter("@DiaChi", DiaChi);
-            SqlParameter p6 = new SqlParameter("@MaLop", maLop);
-            SqlParameter[] p = { p1, p2, p3, p4, p5, p6 };
+            SqlParameter p4 = new SqlParameter("@HocVi", HocVi);
+            SqlParameter p5 = new SqlParameter("@NgaySinh", NgaySinh);
+            SqlParameter p6 = new SqlParameter("@DiaChi", DiaChi);
+            SqlParameter p7 = new SqlParameter("@MaLop", maLop);
+            SqlParameter p8 = new SqlParameter("@MaKH", maKhoa);
+            SqlParameter[] p = { p1, p2, p3, p4, p5, p6, p7, p8 };
             if (type == 0)
             {
-                update = "update SinhVien set Ho = @Ho, Ten = @Ten, NgaySinh = @NgaySinh, DiaChi = @DiaChi, MaLop = @MaLop where MaSV = @maso";
+                update = "EXEC sp_UPDATEINFO 0,@maso,@Ho,@Ten,@HocVi,@NgaySinh,@DiaChi,@Malop,@MaKH";
+            }
+            if (type == 1)
+            {
+                update = "EXEC sp_UPDATEINFO 1,@maso,@Ho,@Ten,@HocVi,@NgaySinh,@DiaChi,@Malop,@MaKH";
             }
             cmd = new SqlCommand(update, conn);
             cmd.Parameters.AddRange(p);
@@ -401,7 +415,7 @@ namespace WindowsFormsApp7
             SqlParameter p2 = new SqlParameter("@TenLop", newLop);
             SqlParameter p3 = new SqlParameter("@MaKH", maKhoa);
             SqlParameter[] p = { p1, p2, p3 };
-            string insert = "insert into Lop values (@MaLop,@TenLop,@MaKH)";
+            string insert = "EXEC sp_CHECKTHENINSERTLOP @MaLop, @TenLop, @MaKH";
             cmd = new SqlCommand(insert, conn);
             cmd.Parameters.AddRange(p);
             SqlDataAdapter da = new SqlDataAdapter();
