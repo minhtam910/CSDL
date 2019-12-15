@@ -114,6 +114,12 @@
     <Compile Include="Subject.Designer.cs">
       <DependentUpon>Subject.cs</DependentUpon>
     </Compile>
+    <Compile Include="SVMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SVMenu.Designer.cs">
+      <DependentUpon>SVMenu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddAccount.resx">
       <DependentUpon>AddAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +161,9 @@
     </Compile>
     <EmbeddedResource Include="Subject.resx">
       <DependentUpon>Subject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SVMenu.resx">
+      <DependentUpon>SVMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

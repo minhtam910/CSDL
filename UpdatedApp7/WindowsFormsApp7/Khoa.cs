@@ -59,7 +59,7 @@ namespace WindowsFormsApp7
             try
             {
                 conn.Open();
-                SqlParameter p = new SqlParameter("@TenKH", tenKhoa);
+                SqlParameter p = new SqlParameter("@TenKH", tenKH);
                 string select = "select TenLop,MaLop from Lop l join Khoa k on l.MaKH = k.MaKH where k.TenKH = @TenKH";
                 cmd = new SqlCommand(select, conn);
                 cmd.Parameters.Add(p);
@@ -122,7 +122,9 @@ namespace WindowsFormsApp7
 
         private void LbExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            MenuAdmin menuAdmin = new MenuAdmin(selectedConn, maCS);
+            this.Hide();
+            menuAdmin.ShowDialog();
         }
 
         private void CheckNewKhoa_CheckedChanged(object sender, EventArgs e)

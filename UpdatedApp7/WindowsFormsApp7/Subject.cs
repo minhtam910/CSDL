@@ -125,7 +125,7 @@ namespace WindowsFormsApp7
                 da.DeleteCommand.ExecuteNonQuery();
                 MessageBox.Show("Xóa thành công");
                 resetForm();
-
+                FillData();
             }
             catch
             {
@@ -135,7 +135,14 @@ namespace WindowsFormsApp7
 
         private void Label1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            MenuAdmin ma = new MenuAdmin(selectedConn, maCS);
+            this.Hide();
+            ma.ShowDialog();
+        }
+
+        private void BtnChange_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)

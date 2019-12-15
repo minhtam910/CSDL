@@ -20,7 +20,7 @@ namespace WindowsFormsApp7
         string connMain = "Data Source=.\\SERVER_TTN_MAIN;Initial Catalog=QL_TTN;Integrated Security=True";
         string conn1 = "Data Source=.\\SERVER1_TTN;Initial Catalog=QL_TTN;Integrated Security=True";
         //string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;Integrated Security=True";
-        string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;User ID=sa;Password=***********";
+        string conn2 = @"Data Source = DESKTOP-05IJJ0L\SERVER_TTN2 ; Initial Catalog = QL_TTN;User ID='sa';Password='123456789'";
         string selectedConn = "Data Source=.\\;Initial Catalog=QLTTN;Integrated Security=True";
         private SqlConnection conn;
         private SqlCommand cmd;
@@ -119,18 +119,14 @@ namespace WindowsFormsApp7
                 {
                     if (check.Checked == true)
                     {
-                        if (selectedConn == conn1)
-                        {
-                            AddAccount adc = new AddAccount();
-                            this.Hide();
-                            adc.ShowDialog();
-                        }
-                        if (selectedConn == conn2)
-                        {
-                            Info adc = new Info();
-                            this.Hide();
-                            adc.ShowDialog();
-                        }
+                        AddAccount addAccount = new AddAccount(selectedConn, maCoSo);
+                        this.Hide();
+                        addAccount.ShowDialog();
+                        /*
+                        Info adc = new Info(selectedConn,maCoSo);
+                        this.Hide();
+                        adc.ShowDialog(); 
+                        */
                     }
                     else
                         MessageBox.Show("Chọn cơ sở để đăng nhập.");     
@@ -138,6 +134,7 @@ namespace WindowsFormsApp7
                 if (tag == 1) //role CS1, set conn = conn1
                 {
                     selectedConn = conn1;
+                    maCoSo = "CS1";
                     MenuAdmin ma = new MenuAdmin(selectedConn,maCoSo);
                     this.Hide();
                     ma.ShowDialog();
@@ -145,6 +142,7 @@ namespace WindowsFormsApp7
                 if (tag == 2) //role CS2, set conn = conn2
                 {
                     selectedConn = conn2;
+                    maCoSo = "CS2";
                     MenuAdmin ma = new MenuAdmin(selectedConn, maCoSo);
                     this.Hide();
                     ma.ShowDialog();
@@ -156,6 +154,14 @@ namespace WindowsFormsApp7
                         selectedConn = conn1;
                     else if (maCoSo.Equals("CS2"))
                         selectedConn = conn2;
+                    if (tag == 3) //role SinhVien
+                    {
+
+                    }
+                    if (tag == 4) //role GiaoVien
+                    {
+
+                    }
                 }
                     
             }

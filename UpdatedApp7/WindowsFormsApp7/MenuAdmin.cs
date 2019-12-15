@@ -29,6 +29,13 @@ namespace WindowsFormsApp7
             khoa.ShowDialog();
         }
 
+        private void Label2_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            this.Hide();
+            loginForm.ShowDialog();
+        }
+
         private void btnMonHoc_Click(object sender, EventArgs e)
         {
             Subject subject = new Subject(selectedConn,maCS);
