@@ -20,8 +20,9 @@ namespace WindowsFormsApp7
         string connMain = "Data Source=.\\SERVER_TTN_MAIN;Initial Catalog=QL_TTN;Integrated Security=True";
         string conn1 = "Data Source=.\\SERVER1_TTN;Initial Catalog=QL_TTN;Integrated Security=True";
         //string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;Integrated Security=True";
-        string conn2 = "Data Source=.\\SERVER_TTN2;Initial Catalog=QL_TTN;User ID=sa;Password=***********";
-        string selectedConn = "Data Source=.\\;Initial Catalog=QLTTN;Integrated Security=True";
+        string conn2 = "Data Source=DESKTOP-05IJJ0L\\SERVER_TTN2;Initial Catalog=QL_TTN;User ID=sa";
+        //string conn2 = "Data Source=DESKTOP-05IJJ0L;UID=sa;PWD=123456789;Initial Catalog=QL_TTN";
+        string selectedConn = "Data Source=.\\;Initial Catalog=QL_TTN;Integrated Security=True";
         private SqlConnection conn;
         private SqlCommand cmd;
 
