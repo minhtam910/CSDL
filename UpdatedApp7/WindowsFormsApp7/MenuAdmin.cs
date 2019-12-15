@@ -14,21 +14,24 @@ namespace WindowsFormsApp7
 {
     public partial class MenuAdmin : Form
     {
-        public MenuAdmin()
+        string selectedConn, maCS;
+        public MenuAdmin(String connection, string maCS)
         {
+            this.selectedConn = connection;
+            this.maCS = maCS;
             InitializeComponent();
         }
 
         private void BtnKhoa_Click(object sender, EventArgs e)
         {
-            /*Khoa khoa = new Khoa();
+            Khoa khoa = new Khoa(selectedConn, maCS);
             this.Hide();
-            khoa.ShowDialog();*/
+            khoa.ShowDialog();
         }
 
         private void btnMonHoc_Click(object sender, EventArgs e)
         {
-            Subject subject = new Subject();
+            Subject subject = new Subject(selectedConn,maCS);
             this.Hide();
             subject.ShowDialog();
         }
