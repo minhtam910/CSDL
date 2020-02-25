@@ -1,4 +1,5 @@
-public class Node
+public class HelloWorld{
+    class Node
 {
     private int key;
     private Node left;
@@ -145,11 +146,11 @@ public class Node
 			return null;
 		if(key < x.getKey())
 		{
-			return search(x.getLeft());
+			return search(x.getLeft(),key);
 		}
 		if(key > x.getKey())
 		{
-			return search(x.getRight());
+			return search(x.getRight(),key);
 		}
 		else
 			return x;
@@ -159,12 +160,12 @@ public class Node
 	{
 		String[] keys = strKey.split(" ");
 		int k;
-		k = Integer.parseInt(key);
+		k = Integer.parseInt(keys[0]);
 		Node x = new Node(k);
 		for (int i = 1; i < keys.length; i++)
 		{
-			k = Integer.parseInt(key);
-			x.insertNode(k);
+			k = Integer.parseInt(keys[i]);
+			insertNode(x,k);
 		}
 	}
 	
@@ -315,3 +316,8 @@ public class Node
     }
 }
 
+
+     public static void main(String []args){
+        System.out.println("Hello World");
+     }
+}
